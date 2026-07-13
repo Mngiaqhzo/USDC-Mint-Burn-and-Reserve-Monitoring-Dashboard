@@ -1,0 +1,91 @@
+# Simple Incident Analysis
+
+## Incident Date
+
+2026-07-13
+
+## Incident Type
+
+Reserve coverage exception and increased net burn activity.
+
+## Monitoring Results
+
+| Indicator        |      Result | Status |
+| ---------------- | ----------: | ------ |
+| Reserve coverage |       99.5% | RED    |
+| Market price     |       0.981 | YELLOW |
+| Net burn         | $12 million | RED    |
+| Overall status   |           — | RED    |
+
+## What Happened
+
+The monitoring query showed that reserve assets were lower than the simulated circulating supply.
+
+At the same time, the stablecoin price fell below its normal range and net burn increased above $10 million.
+
+These indicators suggest:
+
+* Possible reserve insufficiency
+* Increased redemption pressure
+* Reduced market confidence
+
+## Recommended Actions
+
+### Stop New Minting
+
+New tokens should not be minted while reserve coverage is below 100%.
+
+Continuing to mint would increase the difference between reserve assets and outstanding stablecoins.
+
+### Verify Reserve Information
+
+The operations or finance team should confirm:
+
+* Bank balances
+* Custodian reports
+* Reserve asset valuation
+* Report update time
+* Possible data delay
+
+The team should determine whether the result represents a real reserve shortfall or an information problem.
+
+### Review Burn Activity
+
+Burn activity should be monitored more frequently.
+
+The team should check:
+
+* Daily burn amount
+* Large burn transactions
+* Stablecoin market price
+* Available liquid reserve assets
+
+### Do Not Automatically Pause All Transfers
+
+A global smart contract pause is not the first recommended action because there is no evidence of:
+
+* A smart contract attack
+* Unauthorized minting
+* Private key compromise
+* Abnormal transfer behavior
+
+The main issue is reserve and redemption risk rather than contract security risk.
+
+## Conclusion
+
+The event is classified as RED.
+
+The recommended response is:
+
+```text
+Stop new minting
+→ Verify reserve data
+→ Review burn activity
+→ Escalate the exception
+```
+
+This case demonstrates that different stablecoin risks require different control actions.
+
+Stopping minting is appropriate for a possible reserve shortfall.
+
+A global pause should normally be reserved for serious on-chain security incidents.
